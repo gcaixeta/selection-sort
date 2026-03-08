@@ -25,8 +25,14 @@ def selection_sort(array):
     print("\n\nUnsorted array:")
     print(array)
     for i in range(len(array) - 1):
-        _, idx_smallest = find_smallest(array, i)
+        smallest, idx_smallest = find_smallest(array, i)
+        print(f"The smallest number in the {i}th round is {
+              smallest} in the {idx_smallest} position")
         array[i], array[idx_smallest] = array[idx_smallest], array[i]
+        print("Partially ordered array:")
+        print(array)
+        print()
+
 
     print("\n\nSorted array:")
     print(array)
@@ -40,8 +46,9 @@ def main():
     selection_sort(generate_random_array(100, 0, 100))
 
     print("Ordering array of size 1000")
-    selection_sort(generate_random_array(1000, 0, 1000))
 
+def full():
+    selection_sort(generate_random_array(1000, 0, 1000))
 
 if __name__ == "__main__":
     main()
